@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json()) // Enable JSON body parsing
 app.use(cookieParser())
 app.use(express.static('public')) // Serve frontend files
+app.use('/images', express.static('upload/images')) // Serve uploaded images
 
 app.use('/movie', require('./routes/movie'))
 

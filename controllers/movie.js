@@ -17,18 +17,18 @@ module.exports.show = async (req, res) => {
 }
 
 module.exports.store = async (req, res) => {
-      const { name, synopsis, rating } = req.body
+      const { name, synopsis, rating, image } = req.body
       if (!name || !synopsis || !rating) return res.send("Field cannot Empty")
-      const movie = await insertMovie(name, synopsis, rating)
+      const movie = await insertMovie(name, synopsis, rating, image || null)
       res.send(movie)
 }
 
 module.exports.update = async (req, res) => {
       try {
             const { id } = req.params
-            const { name, synopsis, rating } = req.body
+            const { name, synopsis, rating, image } = req.body
             if (!name || !synopsis || !rating) return res.send("Field cannot Empty")
-            const movie = await updateMovie(name, synopsis, rating, id)
+            const movie = await updateMovie(name, synopsis, rating, image || null, id)
             res.send(movie)
       } catch (error) {
             console.log(error)

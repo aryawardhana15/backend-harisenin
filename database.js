@@ -39,14 +39,14 @@ module.exports.getMoviesSortBy = async (sort) => {
       return res
 }
 
-module.exports.insertMovie = async (name, synopsis, rating) => {
-      const result = await pool.query("INSERT INTO movies (name, synopsis, rating) VALUES (?, ?, ?)", [name, synopsis, rating])
-      return { id: result[0].insertId, name, synopsis, rating }
+module.exports.insertMovie = async (name, synopsis, rating, image) => {
+      const result = await pool.query("INSERT INTO movies (name, synopsis, rating, image) VALUES (?, ?, ?, ?)", [name, synopsis, rating, image])
+      return { id: result[0].insertId, name, synopsis, rating, image }
 }
 
-module.exports.updateMovie = async (name, synopsis, rating, id) => {
-      await pool.query("UPDATE movies SET name = ?, synopsis = ?, rating = ? WHERE id = ?", [name, synopsis, rating, id])
-      return { id, name, synopsis, rating }
+module.exports.updateMovie = async (name, synopsis, rating, image, id) => {
+      await pool.query("UPDATE movies SET name = ?, synopsis = ?, rating = ?, image = ? WHERE id = ?", [name, synopsis, rating, image, id])
+      return { id, name, synopsis, rating, image }
 }
 
 module.exports.deleteMovie = async (id) => {

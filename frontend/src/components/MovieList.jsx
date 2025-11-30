@@ -121,22 +121,31 @@ function MovieList() {
                     ) : (
                         movies.map((movie) => (
                             <div key={movie.id} className="movie-card">
-                                <h3>{movie.name}</h3>
-                                <div className="movie-rating">⭐ {movie.rating}</div>
-                                <p className="movie-synopsis">{movie.synopsis}</p>
-                                <div className="movie-actions">
-                                    <button
-                                        className="btn-edit"
-                                        onClick={() => handleEdit(movie)}
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        className="btn-delete"
-                                        onClick={() => handleDelete(movie.id)}
-                                    >
-                                        Delete
-                                    </button>
+                                {movie.image && (
+                                    <img
+                                        src={`http://localhost:5000/images/${movie.image}`}
+                                        alt={movie.name}
+                                        className="movie-poster"
+                                    />
+                                )}
+                                <div className="movie-card-content">
+                                    <h3>{movie.name}</h3>
+                                    <div className="movie-rating">⭐ {movie.rating}</div>
+                                    <p className="movie-synopsis">{movie.synopsis}</p>
+                                    <div className="movie-actions">
+                                        <button
+                                            className="btn-edit"
+                                            onClick={() => handleEdit(movie)}
+                                        >
+                                            Edit
+                                        </button>
+                                        <button
+                                            className="btn-delete"
+                                            onClick={() => handleDelete(movie.id)}
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         ))

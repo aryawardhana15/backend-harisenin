@@ -13,7 +13,8 @@ CREATE TABLE `movies` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `name` VARCHAR(255) NOT NULL,
   `synopsis` TEXT,
-  `rating` DECIMAL(3, 1)
+  `rating` DECIMAL(3, 1),
+  `image` VARCHAR(255)
 );
 
 -- 2. Table Users
